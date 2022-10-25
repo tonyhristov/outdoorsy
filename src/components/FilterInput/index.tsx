@@ -1,20 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
+import RVContext from '../../context';
 
 function FilterInput() {
     const [filter, setFilter] = useState('')
+    const context = useContext(RVContext)
   
-   const changeFilter = (change: string) => {
+   const HandleChange = (change: string) => {
       setFilter(change)
   
    }
+
+   context.changeFilter(filter);
   
     return (
       <div className="FilterInputContainer">
-  
-        <h1>{filter}</h1>
         <input name="filter" onChange={((e: React.FormEvent<HTMLInputElement>) => {
           const newValue = e.currentTarget.value;
-          changeFilter(newValue)
+          HandleChange(newValue)
         })}/>
       </div>
     );

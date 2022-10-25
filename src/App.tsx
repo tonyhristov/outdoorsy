@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Home from './pages/home';
+import RVContext from './context';
 
 function App() {
-  
+  const [filter, setFilter] = useState("")
+
+  const changeFilter = (filter:string) =>{
+    setFilter(filter)
+  }
+
+  const AppContext = {filter, changeFilter}
 
   return (
-    <div className="App">
+    <RVContext.Provider value={AppContext}>
+      <div className="App">
       <header className="App-header">
         <Home/>
       </header>
     </div>
+    </RVContext.Provider>
   );
 }
 
