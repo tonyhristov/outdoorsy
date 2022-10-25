@@ -58,35 +58,42 @@ function Home() {
   },[])
 
     return (
-      <div className="HomeContainer">
+      <Wrapper className="HomeContainer">
         <FilterInput/>
         <div>
           {rentals.map(element=> (
-            <Container>
+            <RentalContainer>
               <RentalImage src={element.image} alt={element.image_id}/>
-              <p>{element.name}</p>
-            </Container>
+              <Info>{element.name}</Info>
+            </RentalContainer>
           ))}
         </div>
-      </div>
+      </Wrapper>
     );
   }
 
-  const Container = styled.div`
+const Wrapper = styled.div`
+  width: 50%;
+  float: left;
+  margin-left: 25%;
+`
+
+  const RentalContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: 20px 20px; */
-    grid-gap: 5px;
+    grid-template-columns: repeat(2,1fr);
     margin-bottom: 20px;
   `
 
   const RentalImage = styled.img`
-    width: 300px;
+    width: 275px;
     height: 150px;
+    float: right;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: 100% 50%;
   `
   const Info = styled.p`
-    text-align: center;
-  
+    font-size: 20px;
   `
   
   export default Home;

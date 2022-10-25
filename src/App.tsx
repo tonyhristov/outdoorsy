@@ -14,10 +14,8 @@ function App() {
 
   return (
     <RVContext.Provider value={AppContext}>
-      <div>
-      <header>
+      <div className="App">
         <Home/>
-      </header>
     </div>
     </RVContext.Provider>
   );
