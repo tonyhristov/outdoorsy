@@ -8,24 +8,24 @@ function RentalInfo({props}:any) {
               <Info>{props.name}</Info>
             </RentalContainer>
     );
-  }
+}
 
-  const RentalContainer = styled.div`
+const RentalContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin-bottom: 20px;
-  `
+`
 
-  const RentalImage = styled.img`
+const RentalImage = styled.img`
     width: 275px;
     height: 150px;
     float: right;
     border-radius: 10px;
     object-fit: cover;
     object-position: 100% 50%;
-  `
-  const Info = styled.p`
+`
+const Info = styled.p`
     font-size: 20px;
-  `
+`
   
-  export default RentalInfo;
+export default RentalInfo;
