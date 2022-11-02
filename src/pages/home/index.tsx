@@ -6,7 +6,7 @@ import styled from "styled-components"
 import RentalInfo from '../../components/RentalInfo';
 
 function Home() {
-  const [rentals, setRentals] = useState<{ name:string, image_id:string, image: string }[]>([])
+  const [rentals, setRentals] = useState<{ name:string, image_id:string, image: string, vehicleType: string }[]>([])
   const context = useContext(RVContext);
     
   const getRentalData =async () => {
@@ -18,7 +18,8 @@ function Home() {
 
   useEffect(()=>{
     getRentalData()
-  })
+  }, [context.filter])
+
 
   return (
     <Wrapper className="HomeContainer">

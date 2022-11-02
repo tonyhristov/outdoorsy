@@ -6,6 +6,7 @@ function RentalInfo({props}:any) {
             <RentalContainer>
               <RentalImage src={props.image} alt={props.image_id}/>
               <Info>{props.name}</Info>
+              <Info>{props.vehicleType}</Info>
             </RentalContainer>
     );
 }

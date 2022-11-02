@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext, useEffect} from 'react';
 import RVContext from '../../context';
 import styled from 'styled-components';
 
@@ -6,8 +6,18 @@ function FilterInput() {
   const [filter, setFilter] = useState('')
   const context = useContext(RVContext)
   
+  let waitForText:any = null
+
   const HandleChange = (change: string) => {
-    setFilter(change)
+    if (waitForText){
+       clearTimeout(waitForText)
+       waitForText = null;
+    }
+
+    waitForText = setTimeout(() => {
+      setFilter(change)
+    }, 300)
+
   }
 
   context.changeFilter(filter);
